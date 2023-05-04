@@ -12,8 +12,6 @@ public class Car extends AbstOther
          super(speed);
      }
     
-    
-    
     /**
      * Act - do whatever the Car wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -23,8 +21,9 @@ public class Car extends AbstOther
         super.act();
     }
     
-    
     public void interact(Frogger player){
-        
+        if (intersects(player)){
+            player.die();
+        }
     }
 }

@@ -23,6 +23,20 @@ public class Rock extends AbstOther
     }
     
     public void interact(Frogger player){
-        
+        if (intersects(player) && width>0){
+            img = getImage();
+            width = img.getWidth()-2;
+            height = img.getHeight()-2;
+            if(width > 20){
+                
+                img.scale(width, height);    
+            }
+            else{
+                img.setTransparency(0);
+            }
+                
+            
+            
+        }
     }
 }

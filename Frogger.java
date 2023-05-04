@@ -12,7 +12,7 @@ public class Frogger extends Actor
     final int keyCooldown = 8;
     private int keyTimer = 0;
     GreenfootImage img;
-    World world;
+    Game world;
 
     public Frogger(){
         img = getImage();
@@ -27,7 +27,7 @@ public class Frogger extends Actor
     public void act()
     {
         if(world == null){
-            world = getWorld();
+            world = (Game)getWorld();
             //reset rotation and position
             reset();
 
@@ -70,4 +70,12 @@ public class Frogger extends Actor
         setRotation(-90);
         setLocation(world.getWidth()/2, world.getHeight()-img.getHeight()/2);
     }
+    
+    protected void die(){
+        world.lives--;
+        world.addObject(new Corpse(this), getX(), getY());
+        
+        reset();
+    }
+    
 }
